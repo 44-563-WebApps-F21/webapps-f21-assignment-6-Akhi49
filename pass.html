@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <title>Story of a Student</title>
+ 
+<body>
+
+<h2>Pass phrase Akhil Vanaparthi</h2>
+
+<form>
+    <label for="form1">Enter the secret phrase</label>
+    <input type ="password" id="form1" name="form1" min=10 max=50 step=2 value="Let me in"> <br>
+
+    <label for="form2">Enter a phrase</label>
+    <input type ="text" id="form2" name="form2" autofocus> <br>
+    
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result">Result will be displayed</p>
+
+<script>
+var correct=0;
+var wrong=0;
+function processPhrase()
+{
+    console.log("Getting form values")
+    secretPhrase=document.getElementById("form1").value
+    checkPhrase=document.getElementById("form2").value
+    out=document.getElementById("result")
+    if(secretPhrase==checkPhrase)
+    {
+        correct++;
+        alert("Access allowed");
+    }
+    else{
+        wrong++;
+        alert("Access denied");
+    }
+    out.innerHTML="correct count:" +correct+ "<br>" + "wrong count:"+wrong
+}
+</script>
+
+</body>
+</html> 
