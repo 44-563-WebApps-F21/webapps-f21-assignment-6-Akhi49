@@ -20,7 +20,7 @@
 
 <p id="result">Result will be displayed</p>
 <div>
-    <img src="download1.jpg" width="200px" height="200px" class="image" alt="Arctic Fox"><br>
+    <img src="download1.jpg" width="200px" height="200px" id="image" alt="Arctic Fox"></img><br>
     <button onclick="newimage()">next</button>
 </div>
 
@@ -45,7 +45,7 @@ function processPhrase()
     out.innerHTML="correct count:" +correct+ "<br>" + "wrong count:"+wrong
 }
     function newimage(){
-        let usingimage = 1;
+        var usingimage = 1;
 
 switch(usingImage){
 
