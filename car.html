@@ -22,6 +22,24 @@
     <input type="button" onclick="orderCar()" value="Order a car">
   </form></br>
   <p id="result"></p>
+   
+  <form>
+    <div>
+        <label for="property">Enter a property</label>
+        <input type ="text" id="property" value="color">
+    </div>
+    
+    <div>
+        <label for="propertyVal">Enter a value</label>
+        <input type ="text" id="propertyVal"/>
+    </div><br>
+
+    <div>
+        <input type="button" id="updateCarBtn" onclick="updateCar()" value="Update the car"/>
+    </div>
+</form>
+
+<p id="result"></p>
   <script> 
 
     let my_car={};
@@ -38,6 +56,16 @@
         document.getElementById("result").innerHTML = my_car;
         
     }
+    function updateCar(){
+    
+    let property = document.getElementById("property").value;
+    let propertyVal = document.getElementById("propertyVal").value;
+
+    my_car[property]=propertyVal;
+
+    document.getElementById("result").innerHTML = my_car[property];
+
+}
     </script>
     </body>
     </html>
