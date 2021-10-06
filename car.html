@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <title>about cars</title>
+<body>
+
+<h2>Akhil Vanaparthi order a car</h2>
+
+ 
+<form>
+    <input type="checkbox" id="electric" name="carAttributes"   
+      value="electric" checked>
+    <label for="electric">electric</label></br>
+  
+    <input type="checkbox" id="ac" name="carAttributes" 
+       value="ac">
+    <label for="cb1_olive">ac</label></br>
+  
+    <input type="checkbox" id="gps" name="carAttributes"   
+       value="GPS" checked>
+    <label for="gps">gps</label></br></br>
+
+    <input type="button" onclick="orderCar()" value="Order a car">
+  </form></br>
+  <p id="result"></p>
+  <script> 
+
+    let my_car={};
+    function orderCar() {
+        my_car = {};
+        
+        console.log("Getting input")
+        let electric = document.getElementById("electric").checked;
+        let ac = document.getElementById("ac").checked;
+        let gps = document.getElementById("gps").checked;  
+        
+        my_car={'electric':electric,'ac':ac,'gps':gps};
+        
+        document.getElementById("result").innerHTML = my_car;
+        
+    }
+    </script>
+    </body>
+    </html>
+    
