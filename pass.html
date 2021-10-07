@@ -6,69 +6,80 @@
 
 <h2>Pass phrase Akhil Vanaparthi</h2>
 
-<form>
-    <label for="form1">Enter the secret phrase</label>
-    <input type ="password" id="form1" name="form1" min=10 max=50 step=2 value="Let me in"> <br>
-
-    <label for="form2">Enter a phrase</label>
-    <input type ="text" id="form2" name="form2" autofocus> <br>
+<form id="phraseValidationForm">
     
+    <div>
+        <label for="secret_phrase">Enter the secret phrase</label>
+        <input type ="password" id="secretPhrase" value="Let me in">
+    </div>
+    
+    <div>
+        <label for="phrase">Enter a phrase</label>
+        <input type ="text" id="checkPhrase"/>
+    </div>
+    
+    <div>
+        <input type="button" id="btnProcessPhrase" onclick="processPhrase()" value="Check the phrase"/>
+    </div>
 
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
+<p id="result"></p>
 
-<p id="result">Result will be displayed</p>
 <div>
-    <img src="download1.jpg" width="200px" height="200px" id="image" alt="Arctic Fox"></img><br>
-    <button onclick="newimage()">next</button>
+
+    <img src="download1.jpg" id="image" style="height: 200px;width: 200px;" onclick="newImage()"></img>
+
 </div>
 
-<script>
-var correct=0;
-var wrong=0;
-function processPhrase()
-{
-    console.log("Getting form values")
-    secretPhrase=document.getElementById("form1").value
-    checkPhrase=document.getElementById("form2").value
-    out=document.getElementById("result")
-    if(secretPhrase==checkPhrase)
-    {
-        correct++;
-        alert("Access allowed");
-    }
-    else{
-        wrong++;
-        alert("Access denied");
-    }
-    out.innerHTML="correct count:" +correct+ "<br>" + "wrong count:"+wrong
-}
-    function newimage(){
-        var usingimage = 1;
-
-switch(usingImage){
-
-    case 1: 
-        usingImage++;
-        document.getElementById("image").src = "image/download1.jpg";
-        break;
-    
-    case 2:
-        usingImage++;
-        document.getElementById("image").src = "image/nyala.jpg";
-        break;
-    
-    case 3:
-        usingImage = 1;
-        document.getElementById("image").src = "image/paddlefish.jpg";
-        break;
-}
+<script> 
+    correct = 0;
+    wrong = 0;
+    usingImage = 1;
+   
+   function processPhrase (){
+       console.log("Getting form values")
+       var secretPhrase = document.getElementById("secretPhrase").value;
+       var checkPhrase = document.getElementById("checkPhrase").value;
+       if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
+         correct =correct + 1;
+         alert("Access Allowed");
+       }else{
+           wrong = wrong + 1;
+           alert("Access Denied");  
+       }
+        var out = document.getElementById("result");
+       
+        out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
+       
+   }
 
 
-}
+   function newImage(){
 
-</script>
+        switch(usingImage){
+
+            case 1: 
+                usingImage++;
+                document.getElementById("image").src = "download.jpg";
+                break;
+            
+            case 2:
+                usingImage++;
+                document.getElementById("image").src = "paddlefish.jpg";
+                break;
+            
+            case 3:
+                usingImage =1;
+                document.getElementById("image").src = "nyala.jpg";
+                break;
+        }
+
+
+   }
+
+   </script>
+   
 
 </body>
 </html> 
