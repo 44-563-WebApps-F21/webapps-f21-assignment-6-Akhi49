@@ -10,33 +10,33 @@
 <h1>Akhil Vanaparthi Computes</h1>
 
 <form>
-    <label for="baseValue">Enter a base</label>
-    <input type ="number" id="baseValue" name="baseValue" value=10> <br>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" name="base" value=10> <br>
 
-    <label for="exponentValue">Enter a exponent</label>
-    <input type ="number" id="exponentValue" name="exponentValue" value=2> <br>
+    <label for="exponent">Enter a exponent</label>
+    <input type ="number" id="exponent" name="exponent" value=2> <br>
 
     <input type="button" onclick="powers()" value="Compute">
 
 <p id="result"></p>
 <div>
-    <input type="radio" id="plus" name="mathOperations" onclick="processRadio()" value="+"
+    <input type="radio" id="plus" name="Operation" onclick="processRadio()" value="+"
           >
     <label for="plus">plus</label>
   </div>
   
   <div>
-    <input type="radio" id="minus" name="mathOperations" onclick="processRadio()" value="-">
+    <input type="radio" id="minus" name="Operation" onclick="processRadio()" value="-">
     <label for="minus">minus</label>
   </div>
   
   <div>
-    <input type="radio" id="times" name="mathOperations" onclick="processRadio()" value="*"  checked>
+    <input type="radio" id="times" name="Operation" onclick="processRadio()" value="*"  checked>
     <label for="times">times</label>
   </div>
 
   <div>
-    <input type="radio" id="divide" name="mathOperations" onclick="processRadio()" value="/">
+    <input type="radio" id="divide" name="Operation" onclick="processRadio()" value="/">
     <label for="divide">divide</label>
   </div>
   <p id="mathResult"></p>
@@ -46,15 +46,15 @@
 
     function powers(){
 
-        var baseValue = document.getElementById("baseValue").value;
-        var exponentValue = document.getElementById("exponentValue").value;
+        var base= document.getElementById("base").value;
+        var exponent = document.getElementById("exponent").value;
         var result ="";
         
-        result = "powers of "+ baseValue+" are: ";
+        result = "powers of "+ base+" are: ";
         
 
-        for (let i = 1; i <= exponentValue; i++) {
-                result = result + Math.pow(baseValue,i)+" ";
+        for (let i = 1; i <= exponent; i++) {
+                result = result + Math.pow(base,i)+" ";
         }
 
         document.getElementById("result").innerHTML = result;
@@ -62,28 +62,28 @@
     }
     function processRadio(){
 
-var baseValue = document.getElementById("baseValue").value;
-var exponentValue = document.getElementById("exponentValue").value;
+var base = document.getElementById("base").value;
+var exponent= document.getElementById("exponent").value;
 
 
-var mathOperations = document.getElementsByName('mathOperations');
+var Operation = document.getElementsByName('Operation');
 var operator="";
 var mathResult=0;
 
-for (var i = 0, length = mathOperations.length; i < length; i++) {
+for (var i = 0, length = Operation.length; i < length; i++) {
 
-    if (mathOperations[i].checked) {
+    if (Operation[i].checked) {
 
-        operator = mathOperations[i].value;
+        operator = Operation[i].value;
         
         if(operator =="+"){
-            mathResult = parseFloat(baseValue)+parseFloat(exponentValue);
+            mathResult = parseFloat(base)+parseFloat(exponent);
         }else if(operator == "-"){
-            mathResult = baseValue-exponentValue;
+            mathResult = base-exponent;
         }else if(operator == "*"){
-            mathResult = baseValue*exponentValue;
+            mathResult = base*exponent;
         }else{
-            mathResult = baseValue/exponentValue;
+            mathResult = base/exponent;
         }
 
         document.getElementById("mathResult").innerHTML = mathResult;
