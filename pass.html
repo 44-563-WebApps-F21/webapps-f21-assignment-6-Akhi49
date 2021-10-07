@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
     <title>Story of a Student</title>
+    <head>
+        <style>
+    
+            h2 {
+                background-color: blue;
+            }
+        
+            label {
+                color: black;
+            }
+        
+            p {
+                color: rgb(0, 139, 46);
+            }
+        
+        
+         </style>
+    </head>
  
 <body>
 
@@ -37,22 +55,30 @@
     wrong = 0;
     usingImage = 1;
    
-   function processPhrase (){
-       console.log("Getting form values")
-       var secretPhrase = document.getElementById("secretPhrase").value;
-       var checkPhrase = document.getElementById("checkPhrase").value;
-       if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
-         correct =correct + 1;
-         alert("Access Allowed");
-       }else{
-           wrong = wrong + 1;
-           alert("Access Denied");  
-       }
-        var out = document.getElementById("result");
-       
-        out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
-       
-   }
+    let errorFlag = 0;
+    
+    function processPhrase (){
+        console.log("Getting form values")
+        var secretPhrase = document.getElementById("secretPhrase").value;
+        var checkPhrase = document.getElementById("checkPhrase").value;
+ 
+        if(secretPhrase != null && secretPhrase.trim() != "" && checkPhrase != null && checkPhrase.trim() != "" && secretPhrase == checkPhrase){
+          correct =correct + 1;
+          alert("Access Allowed");
+          errorFlag =0;
+        }else{
+            wrong = wrong + 1;
+            alert("Access Denied"); 
+            errorFlag++;
+            if (wrong >= 3 && errorFlag>2) {
+                     alert("account locked");
+             }
+        }
+         var out = document.getElementById("result");
+        
+         out.innerHTML = "Correct: " + correct + "<br>" + "Wrong: " + wrong;
+        
+    }
 
 
    function newImage(){
@@ -77,6 +103,7 @@
 
 
    }
+
 
    </script>
    
